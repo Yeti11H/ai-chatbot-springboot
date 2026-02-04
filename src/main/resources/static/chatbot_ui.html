@@ -596,12 +596,12 @@
     // 后端API地址配置
     const BACKEND_CONFIGS = {
         'local': 'http://localhost:8080',
-        'railway': 'https://ai-chatbot-springboot-production.up.railway.app/',
-        'vercel': 'https://你的应用名.vercel.app'
+        'railway': 'https://ai-chatbot-springboot-production.up.railway.app',
+        //'vercel': 'https://你的应用名.vercel.app'
     };
 
     // 当前使用的后端
-    let currentBackend = 'local';
+    let currentBackend = 'railway';
 
     // 当前用户ID
     let currentUserId = 'user_' + Math.floor(Math.random() * 10000);
@@ -843,7 +843,7 @@
 
         try {
             const backendUrl = BACKEND_CONFIGS[currentBackend];
-            const response = await fetch(`${backendUrl}/clearHistory?userId=${currentUserId}`);
+          const response = await fetch(buildUrl(`/clearHistory?userId=${currentUserId}`));
 
             // 清空本地消息显示
             elements.messagesContainer.innerHTML = '';
