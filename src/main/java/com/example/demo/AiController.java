@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class AiController {
 
     // ============== 配置区（必须修改！）==============
